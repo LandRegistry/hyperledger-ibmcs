@@ -54,26 +54,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: blockchain-org2peer1
-  labels:
-    run: blockchain-org2peer1
-spec:
-  type: NodePort
-  selector:
-    name: org2peer1
-  ports:
-  - protocol: TCP
-    port: 5010
-    nodePort: 30210
-    name: grpc
-  - protocol: TCP
-    port: 5011
-    nodePort: 30211
-    name: events
----
-apiVersion: v1
-kind: Service
-metadata:
   name: blockchain-couchdb1
   labels:
     run: blockchain-couchdb1
@@ -86,19 +66,3 @@ spec:
     port: 5984
     nodePort: 30984
     name: couchdb1
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: blockchain-couchdb2
-  labels:
-    run: blockchain-couchdb2
-spec:
-  type: NodePort
-  selector:
-    name: couchdb2
-  ports:
-  - protocol: TCP
-    port: 5984
-    nodePort: 31984
-    name: couchdb2
