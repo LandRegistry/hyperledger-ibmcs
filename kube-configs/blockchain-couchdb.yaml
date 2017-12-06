@@ -233,7 +233,7 @@ spec:
           # value: goleveldb
           value: CouchDB
         - name: CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS
-          value: blockchain-couchdb1:5984
+          value: blockchain-couchdb1:30984
         - name: PEER_CFG_PATH
           value: peer_config/
         - name: FABRIC_CFG_PATH

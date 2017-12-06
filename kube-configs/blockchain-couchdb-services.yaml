@@ -63,6 +63,7 @@ spec:
     name: couchdb1
   ports:
   - protocol: TCP
-    port: 5984
+    port: 30984
+    targetPort: 5984
     nodePort: 30984
     name: couchdb1
