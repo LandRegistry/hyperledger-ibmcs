@@ -133,6 +133,7 @@ Now browse to [here](http://localhost:8001/ui) and you will see the dashboard.
 You can get all of this information from the command line (try `kubectl get pods -a`), but it's convenient to have it all just a few clicks away.
 
 ## Create a local connection profile
+
 We're going to deploy the business network, but to do that we need a connection profile to tell our local Hyperledger Composer CLI where to deploy it.  Local connection profiles are stored in _~/.composer-connection-profiles/_ by default.
 
 Create a new connection profile directory for IBM Container Services and copy the example profile.
@@ -143,6 +144,8 @@ cp profile/connection.json ~/.composer-connection-profiles/ibmcs
 ```
 
 Edit it to use the public IP address of your container cluster - the one from `bx cs workers cluster_name_here`.
+
+*To use this cluster with the transaction_backend deployed to Bluemix, the public IP must be placed in the connection profile environment variable defined in it's manifest.yml.*
 
 ## Copy the credentials from the running Hyperledger instance
 
@@ -167,6 +170,8 @@ Import that identity into the local credential store, creating a new identity to
 rm -rf ~/.composer-credentials/*
 composer identity import -p ibmcs -u PeerAdmin -c cert.pem -k key.pem
 ```
+
+*The three files that this command creates are the files you will need to upload to Bluemix's Object Storage to allow the deployed transaction_backend to connect to this cluster.*
 
 ## Create and deploy the business network
 
